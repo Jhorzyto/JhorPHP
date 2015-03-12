@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+ main {
+ 	margin-top: 1%;
+    flex: 1 0 auto;
+ }
+
+ footer.page-footer{
+	padding-top: 0;
+}
+
+.ocultarConteudo{
+	display: none!important;
+}
+
+ul.side-nav li {
+	line-height: 44px!important;
+	font-size: 15px;
+	font-weight: bold;
+	width: 100%;
+	padding-left: 0;	
+	padding-right: 0;
+}
+
+ul.side-nav a {
+	width: 100%!important;
+}
+
+.spanPading{
+	padding-left: 5%!important;
+}
+
+.clear{
+	padding-bottom: 1%;
+}

@@ -20,7 +20,7 @@ class Principal {
 	const DESENVOLVEDOR = "JHORDAN LIMA";
 	const GIT_DESENVOLVEDOR = "http://fb.com/JhorZyto";
 	const ANO_DESENVOLVIMENTO = "2015";
-	const VERSAO = "0.3.0";
+	const VERSAO = "0.3.1";
 
 	const ENDERECO_SISTEMA = "http://localhost/framework-jhor/";	
 	const ENDERECO_ARQUIVO = "C:/wamp/www/framework-jhor/";

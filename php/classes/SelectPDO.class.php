@@ -46,6 +46,7 @@ Class SelectPDO{
 	private $ordecacoes;
 	private $limites;
 	private $tabela;
+	private $dadosRepetidos;
 	public static $instance;
 
 	/** 
@@ -91,6 +92,20 @@ Class SelectPDO{
 			"operador" => $operador,
 			"valor" => $valor,
 			"param" => $param);
+		
+	}
+
+	/** 
+	* Método para impedir dados repetidos
+	* @access public 
+	* @param String $coluna 
+	* @param String $operador 
+	* @param String $valor 
+	* @return void 
+	*/ 
+	public function dadosRepetidos(){
+		
+		$this->dadosRepetidos = true;
 		
 	}
 	
@@ -247,6 +262,7 @@ Class SelectPDO{
 	private function processarSQL(){
 
 		$consulta = "SELECT ";
+		$consulta .= $this->processarDadosRepetidos();
 		$consulta .= $this->processarColunas();
 		$consulta .= " FROM ";
 		$consulta .= $this->tabela;
@@ -261,6 +277,15 @@ Class SelectPDO{
 		//Log::getInstance()->inserirLog($consulta);
 
 		return $consulta;
+	}
+
+	/** 
+	* Método para verificar dados repetidos
+	* @access private 
+	* @return string 
+	*/ 
+	private function processarDadosRepetidos(){
+		return ( $this->dadosRepetidos ) ? 'DISTINCT ' : '' ;
 	}
 
 	/** 

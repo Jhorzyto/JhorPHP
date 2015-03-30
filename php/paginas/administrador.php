@@ -14,9 +14,11 @@
 	//Página precisa efetuar login de usuário. True para sim ou false para não
 	DEFINE("PAGINA_LOGIN", TRUE ); 
 
-	if( in_array( Principal::getInstance()->GetUrl( 'pagina_id' ) , array( 'detalhes' , 'novo_usuario' , 'valid_novo_usuario' , 'validar_atualizar_usuario' ,'status' ) ) ) {
+	if( in_array( Principal::getInstance()->GetUrl( 'pagina_id' ) , 
+		array( 'detalhes' , 'novo_usuario' , 'valid_novo_usuario' , 'validar_atualizar_usuario' ,'status' ) ) ) {
 		//Template da página para carregamento
-		DEFINE("PAGINA_TEMPLATE", "limpo" ); 	
+		DEFINE("PAGINA_TEMPLATE", "limpo" );		
+
 	} else {
 		//Template da página para carregamento
 		DEFINE("PAGINA_TEMPLATE", "padrao" ); 
@@ -197,6 +199,10 @@
 										);
 
 				}
+
+
+				header('content-type: application/json; charset=utf-8');
+				header("access-control-allow-origin: *");
 
 				$json = array( $emailArray , $userArray , $passArray , $privgArray , $setorArray );
 				echo json_encode( $json );
@@ -432,6 +438,9 @@
 											);
 
 					}
+
+					header('content-type: application/json; charset=utf-8');
+					header("access-control-allow-origin: *");
 
 					$json = array( $SetUsuarioEmail , $SetUsuarioNomeUsuario , $SetPrivilegioId , $SetSetorId);
 					echo json_encode( $json );

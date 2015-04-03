@@ -1,0 +1,18 @@
+{
+	"version" : "Versão",
+	"user_disable" : "Usuário Desabilitado!",
+	"error_set_attributes" : "Ocorreu um erro ao atribuir informações para esse usuário!",
+	"database_error" : "Erro ao receber informações do banco de dados!",
+	"start" : "Início",
+	"admin" : "Administrador",
+	"open" : "Abrir",
+	"loading" : "Carregando...",
+	"close" : "Fechar",
+	"update" : "Atualizar",
+	"cancel" : "Cancelar",
+	"send" : "Enviar",
+	"clear" : "Limpar",
+	"validate" : "Validar",
+	"details" : "Detalhes",
+	"logout" : "Desconectar"
+}

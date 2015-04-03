@@ -1,0 +1,8 @@
+{
+	"error_404_header" : "Error 404 - Página não encontrada!",
+	"error_404_info" : "A página que você solicitou não foi encontrada, verifique o endereço corretamente ou volte para página inicial!",
+	"error_403_header" : "Erro 403 - Sem permissão para acessar esse conteúdo!",
+	"error_403_info" : "Erro 403 - Você não tem privilégio suficiente para acessar essa página, contrate o administrador para mais informações!",
+	"error_500_header" : "Erro 500 - Servidor de Dados indisponível!",
+	"error_500_info" : "Erro 500 - Não conseguimos estabelecer uma comunicação com o servidor de dados, um log foi gerado e o administrador em breve estará resolvendo o problema!"
+}

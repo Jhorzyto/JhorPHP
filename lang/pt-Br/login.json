@@ -1,0 +1,8 @@
+{
+	"password_wrong" : "Senha Inválida!",
+	"user_wrong" : "Usuário Inválido!",
+	"user_name" : "Nome do Usuário",
+	"user_password" : "Senha do Usuário",
+	"login_info" : "Para acessar sua conta, é necessário informar o nome do usuário e a senha do usuário!",
+	"submit_login" : "Autenticar"
+}

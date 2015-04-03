@@ -24,6 +24,8 @@
 		DEFINE("PAGINA_TEMPLATE", "padrao" ); 
 	}
 
+	Principal::getInstance()->SetString( 'administrador' );
+
 	ob_start();
 
 	switch (  Principal::getInstance()->GetUrl( 'pagina_id' )  ) {

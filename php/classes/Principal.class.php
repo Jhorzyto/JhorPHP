@@ -14,13 +14,14 @@ class Principal {
 	private static $CSSContainer;
 
 	private static $lang;
+	private static $strings;
 
 	const NOME_PROJETO = "EMPRESA";
 	const DESCRICAO = "SLOGAM DA EMPRESA";
 	const DESENVOLVEDOR = "JHORDAN LIMA";
 	const GIT_DESENVOLVEDOR = "http://fb.com/JhorZyto";
 	const ANO_DESENVOLVIMENTO = "2015";
-	const VERSAO = "0.3.1";
+	const VERSAO = "0.4.0";
 
 	const ENDERECO_SISTEMA = "http://localhost/framework-jhor/";	
 	const ENDERECO_ARQUIVO = "C:/wamp/www/framework-jhor/";
@@ -108,24 +109,50 @@ class Principal {
 
 	}
 
-	public function Setlang ( $idioma ){
+	public function Setlang ( $idioma = 'pt-Br' ){
 
-		ob_start();
+		if ( $this->paginaExiste( self::ENDERECO_IDIOMAS . $idioma , "pasta") )	
+
+			self::$lang = $idioma;
+
+		else 
+
+			self::$lang = 'pt-Br';
+
+	}
+
+	public function SetString ( $string = 'default' ){
+		
+		if ( $this->paginaExiste( self::$lang . "/" . $string , "idioma" ) ) {
+
+			$endereco = self::$lang . "/" . $string;
+
+			ob_start();
 			
-			include $this->gerarIncludeEndereco( $idioma, "idioma" );
+			include $this->gerarIncludeEndereco( $endereco , "idioma" );
 
-		$json = ob_get_contents(); 		
-		ob_end_clean(); 
+			$json = ob_get_contents(); 		
+			ob_end_clean(); 
 
-		self::$lang = json_decode($json, true);
+			if ( is_null( self::$strings )  ) {
+
+				self::$strings = json_decode($json, true);
+
+			} else {
+
+				self::$strings = array_merge( self::$strings , json_decode($json, true) );
+
+			}
+
+		} 
 
 	}
 
 	public function Getlang( $conteudo , $noPrint = false){
 
-		if( isset( self::$lang[ $conteudo ] ) ){
+		if( isset( self::$strings[ $conteudo ] ) ){
 
-			return ($noPrint) ? self::$lang[ $conteudo ] : print self::$lang[ $conteudo ] ;
+			return ($noPrint) ? self::$strings[ $conteudo ] : print self::$strings[ $conteudo ] ;
 
 		} else {
 
@@ -159,6 +186,14 @@ class Principal {
 			case "idioma":
 
 				if( file_exists( self::ENDERECO_ARQUIVO . self::ENDERECO_IDIOMAS . $redir_pagina . '.json' ) )
+					return true;
+				else
+					return false;				
+			break;
+			
+			case "pasta":
+
+				if( file_exists( self::ENDERECO_ARQUIVO . $redir_pagina . '/' ) )
 					return true;
 				else
 					return false;				

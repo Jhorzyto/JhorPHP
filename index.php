@@ -19,7 +19,9 @@ $rotasUrl = ( isset($_GET['isw']) ) ? $_GET['isw'] : null;
 
 Principal::getInstance()->SetUrl( $rotasUrl );
 
-Principal::getInstance()->Setlang('pt-BR');
+Principal::getInstance()->Setlang( );
+
+Principal::getInstance()->SetString( );
 
 unset($rotasUrl);
 

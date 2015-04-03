@@ -16,6 +16,8 @@
 	//Template da página para carregamento
 	DEFINE("PAGINA_TEMPLATE", "login" ); 
 
+	Principal::getInstance()->SetString( 'login' );
+
 	ob_start();
 
 	switch ( Principal::getInstance()->GetUrl( 'pagina_id' ) ) {

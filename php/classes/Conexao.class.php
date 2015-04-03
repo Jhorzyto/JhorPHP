@@ -37,7 +37,7 @@ class Conexao {
 	const HOST_USUARIO = "root";
 	const HOST_SENHA = "";
 	const HOST_PORTA = "3306";
-	const DB_NOME = "framework";
+	const DB_NOME = "jhorphp";
 
 	public static $instance;
 
